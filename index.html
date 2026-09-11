@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cuotero Credi Agil J.A</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101b63, #431c87, #9b198e);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 600px;
+    margin: auto;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #a8d928;
+}
+
+.subtitulo {
+    color: #ffd21c;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.tarjeta {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 22px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 26px;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 17px;
+    background: white;
+    color: #222;
+}
+
+.resultado {
+    margin-top: 25px;
+    padding: 22px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.resultado small {
+    display: block;
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+.cuota {
+    font-size: 34px;
+    font-weight: 900;
+    color: #ffd21c;
+    margin: 8px 0;
+}
+
+.detalle {
+    font-size: 16px;
+}
+
+.boton {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.nota {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="encabezado">
+        <div class="logo">
+            CREDI <span>AGIL</span>
+        </div>
+
+        <div class="subtitulo">
+            CUOTERO ONLINE
+        </div>
+    </div>
+
+    <div class="tarjeta">
+
+        <h1>💰 Consultá tu cuota</h1>
+
+        <label for="monto">Seleccioná el monto</label>
+
+        <select id="monto">
+            <option value="">Elegí un monto</option>
+        </select>
+
+
+        <label for="plazo">Seleccioná el plazo</label>
+
+        <select id="plazo">
+            <option value="">Elegí la cantidad de cuotas</option>
+            <option value="6">6 cuotas</option>
+            <option value="8">8 cuotas</option>
+            <option value="10">10 cuotas</option>
+            <option value="12">12 cuotas</option>
+            <option value="15">15 cuotas</option>
+            <option value="18">18 cuotas</option>
+            <option value="24">24 cuotas</option>
+        </select>
+
+
+        <div class="resultado" id="resultado">
+
+            <small>Seleccioná un monto y un plazo</small>
+
+            <div class="cuota">
+                —
+            </div>
+
+            <div class="detalle">
+                Tu cuota aparecerá aquí
+            </div>
+
+        </div>
+
+
+        <a class="boton" href="#" id="contacto">
+            📲 Consultar ahora
+        </a>
+
+        <div class="nota">
+           
