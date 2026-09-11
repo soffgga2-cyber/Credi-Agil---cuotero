@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cuotero Credi Agil J.A</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101b63, #431c87, #9b198e);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 600px;
+    margin: auto;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #a8d928;
+}
+
+.subtitulo {
+    color: #ffd21c;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.tarjeta {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 22px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 26px;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 17px;
+    background: white;
+    color: #222;
+}
+
+.resultado {
+    margin-top: 25px;
+    padding: 22px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 18px;
+    text-align: center;
+}
+
+.resultado small {
+    display: block;
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+.cuota {
+    font-size: 34px;
+    font-weight: 900;
+    color: #ffd21c;
+    margin: 8px 0;
+}
+
+.detalle {
+    font-size: 16px;
+}
+
+.boton {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.nota {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="encabezado">
+        <div class="logo">
+            CREDI <span>AGIL</span>
+        </div>
+
+        <div class="subtitulo">
+            CUOTERO ONLINE
+        </div>
+    </div>
+
+    <div class="tarjeta">
+
+        <h1>💰 Consultá tu cuota</h1>
+
+        <label for="monto">Seleccioná el monto</label>
+
+        <select id="monto">
+            <option value="">Elegí un monto</option>
+        </select>
+
+
+        <label for="plazo">Seleccioná el plazo</label>
+
+        <select id="plazo">
+            <option value="">Elegí la cantidad de cuotas</option>
+            <option value="6">6 cuotas</option>
+            <option value="8">8 cuotas</option>
+            <option value="10">10 cuotas</option>
+            <option value="12">12 cuotas</option>
+            <option value="15">15 cuotas</option>
+            <option value="18">18 cuotas</option>
+            <option value="24">24 cuotas</option>
+        </select>
+
+
+        <div class="resultado" id="resultado">
+
+            <small>Seleccioná un monto y un plazo</small>
+
+            <div class="cuota">
+                —
+            </div>
+
+            <div class="detalle">
+                Tu cuota aparecerá aquí
+            </div>
+
+        </div>
+
+
+        <a class="boton" href="#" id="contacto">
+            📲 Consultar ahora
+        </a>
+
+        <div class="nota">
+            Los valores mostrados son informativos.
+            La aprobación y condiciones finales deben ser confirmadas
+            por Credi Agil J.A.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const datos = {
+
+1:  [235000,182000,149000,127000,112000,101000,90000],
+2:  [465000,358000,292000,254000,223000,201000,177000],
+3:  [696000,546000,446000,391000,345000,313000,277000],
+4:  [911000,711000,582000,518000,456000,413000,365000],
+5:  [1161000,896000,723000,644000,566000,514000,453000],
+6:  [1344000,1020000,864000,769000,674000,612000,537000],
+7:  [1567000,1189000,1004000,896000,785000,712000,584000],
+8:  [1711000,1332000,1103000,980000,851000,767000,667000],
+9:  [1923000,1496000,1238000,1101000,956000,862000,749000],
+10: [2135000,1662000,1376000,1222000,1060000,956000,830000],
+11: [2347000,1828000,1512000,1343000,1166000,1051000,912000],
+12: [2560000,1991000,1647000,1465000,1270000,1146000,993000],
+13: [2772000,2154000,1784000,1585000,1375000,1240000,1075000],
+14: [2985000,2319000,1920000,1707000,1479000,1334000,1158000],
+15: [3198000,2490000,2061000,1829000,1585000,1431000,1241000],
+16: [3295000,2560000,2120000,1881000,1696000,1526000,1324000],
+17: [3500000,2720000,2252000,1997000,1801000,1620000,1406000],
+18: [3704000,2879000,2383000,2114000,1904000,1715000,1488000],
+19: [3906000,3035000,2519000,2231000,2010000,1809000,1570000],
+20: [4114000,3197000,2647000,2348000,2117000,1905000,1652000],
+21: [4199000,3263000,2702000,2396000,2219000,1998000,1731000],
+22: [4398000,3418000,2828000,2510000,2328000,2093000,1814000],
+23: [4598000,3573000,2958000,2623000,2433000,2190000,1896000],
+24: [4798000,3728000,3086000,2737000,2537000,2284000,1976000],
+25: [4954000,3883000,3214000,2850000,2642000,2376000,2065000],
+26: [5152000,4038000,3342000,2963000,2747000,2471000,2142000],
+27: [5350000,4193000,3471000,3077000,2853000,2561000,2224000],
+28: [5548000,4348000,3599000,3191000,2958000,2661000,2307000],
+29: [5746000,4504000,3728000,3305000,3064000,2756000,2389000],
+30: [5944000,4659000,3856000,3419000,3170000,2851000,2471000]
+
+};
+
+const plazos = [6,8,10,12,15,18,24];
+
+const montoSelect = document.getElementById("monto");
+const plazoSelect = document.getElementById("plazo");
+const resultado = document.getElementById("resultado");
+
+function formatoGuarani(numero) {
+    return "₲ " + numero.toLocaleString("es-PY");
+}
+
+for (let monto in datos) {
+
+    const opcion = document.createElement("option");
+
+    opcion.value = monto;
+
+    opcion.textContent =
+        formatoGuarani(Number(monto) * 1000000);
+
+    montoSelect.appendChild(opcion);
+}
+
+
+function actualizar() {
+
+    const monto = montoSelect.value;
+    const plazo = plazoSelect.value;
+
+    if (!monto || !plazo) {
+
+        resultado.innerHTML = `
+            <small>Seleccioná un monto y un plazo</small>
+
+            <div class="cuota">—</div>
+
+            <div class="detalle">
+                Tu cuota aparecerá aquí
+            </div>
+        `;
+
+        return;
+    }
+
+    const indice = plazos.indexOf(Number(plazo));
+
+    const valor = datos[monto][indice];
+
+    resultado.innerHTML = `
+
+        <small>Cuota aproximada</small>
+
+        <div class="cuota">
+            ${formatoGuarani(valor)}
+        </div>
+
+        <div class="detalle">
+            ${formatoGuarani(Number(monto) * 1000000)}
+            en ${plazo} cuotas
+        </div>
+    `;
+}
+
+
+montoSelect.addEventListener("change", actualizar);
+
+plazoSelect.addEventListener("change", actualizar);
+
+</script>
+
+</body>
+</html>
